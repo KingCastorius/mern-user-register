@@ -15,8 +15,11 @@ class HomePage extends React.Component {
 
   signup(e) {
     e.preventDefault();
-      if(state.username.value = '') () => {
-        alert('enter usename')
+    if(this.state.username === '' || this.state.password === '' || this.state.confirmPassword ==='') {
+      alert('please enter info in all fields.')
+    }
+    else if(this.state.password !== this.state.confirmPassword) {
+      alert('make sure your password matches.')
     } else {
       axios.post('/users/register', this.state).then(() => {
         alert('success!')
